@@ -1,0 +1,136 @@
+﻿@model WenEnvios.Models.Producto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Deseas eliminar el producto?</h3>
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TPProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TPProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEEnvio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEEnvio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBodegaEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBodegaEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPuertoEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPuertoEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PNumeroFlota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PNumeroFlota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PNoGuia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PNoGuia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descuento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descuento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PFechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PFechaRegistro)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

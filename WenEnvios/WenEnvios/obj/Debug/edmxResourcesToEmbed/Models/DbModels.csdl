@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ENVIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="IDCliente" Type="Int32" Nullable="false" />
+    <Property Name="CNombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CApellido" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CTelefono" Type="Int32" />
+    <Property Name="Ccorreo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__IDClie__3C69FB99" FromRole="Cliente" ToRole="Producto" />
+    <NavigationProperty Name="Producto1" Relationship="Self.FK__Producto__IDClie__3D5E1FD2" FromRole="Cliente" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Descuento">
+    <Key>
+      <PropertyRef Name="IDescuento" />
+    </Key>
+    <Property Name="IDescuento" Type="Int32" Nullable="false" />
+    <Property Name="Descuento1" Type="Double" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__Descue__3A81B327" FromRole="Descuento" ToRole="Producto" />
+    <NavigationProperty Name="Producto1" Relationship="Self.FK__Producto__Descue__3B75D760" FromRole="Descuento" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IDProduto" />
+    </Key>
+    <Property Name="IDProduto" Type="Int32" Nullable="false" />
+    <Property Name="TPProducto" Type="Int32" Nullable="false" />
+    <Property Name="IDCliente" Type="Int32" Nullable="false" />
+    <Property Name="TEEnvio" Type="Int32" Nullable="false" />
+    <Property Name="PBodegaEntrega" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PPuertoEntrega" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PNumeroFlota" Type="Int32" />
+    <Property Name="PNoGuia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Precio" Type="Int32" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Descuento" Type="Int32" />
+    <Property Name="Total" Type="Int32" />
+    <Property Name="PFechaRegistro" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Producto__IDClie__3C69FB99" FromRole="Producto" ToRole="Cliente" />
+    <NavigationProperty Name="Cliente1" Relationship="Self.FK__Producto__IDClie__3D5E1FD2" FromRole="Producto" ToRole="Cliente" />
+    <NavigationProperty Name="Descuento1" Relationship="Self.FK__Producto__Descue__3A81B327" FromRole="Producto" ToRole="Descuento" />
+    <NavigationProperty Name="Descuento2" Relationship="Self.FK__Producto__Descue__3B75D760" FromRole="Producto" ToRole="Descuento" />
+    <NavigationProperty Name="TipoEnvio" Relationship="Self.FK__Producto__TEEnvi__3E52440B" FromRole="Producto" ToRole="TipoEnvio" />
+    <NavigationProperty Name="TipoEnvio1" Relationship="Self.FK__Producto__TEEnvi__3F466844" FromRole="Producto" ToRole="TipoEnvio" />
+    <NavigationProperty Name="TipoProducto" Relationship="Self.FK__Producto__TPProd__403A8C7D" FromRole="Producto" ToRole="TipoProducto" />
+    <NavigationProperty Name="TipoProducto1" Relationship="Self.FK__Producto__TPProd__412EB0B6" FromRole="Producto" ToRole="TipoProducto" />
+    <NavigationProperty Name="TipoProducto2" Relationship="Self.FK__Producto__TPProd__4222D4EF" FromRole="Producto" ToRole="TipoProducto" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoEnvio">
+    <Key>
+      <PropertyRef Name="TEEnvio" />
+    </Key>
+    <Property Name="TEEnvio" Type="Int32" Nullable="false" />
+    <Property Name="TENombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__TEEnvi__3E52440B" FromRole="TipoEnvio" ToRole="Producto" />
+    <NavigationProperty Name="Producto1" Relationship="Self.FK__Producto__TEEnvi__3F466844" FromRole="TipoEnvio" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="TipoProducto">
+    <Key>
+      <PropertyRef Name="TPProducto" />
+    </Key>
+    <Property Name="TPProducto" Type="Int32" Nullable="false" />
+    <Property Name="TPNombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__TPProd__403A8C7D" FromRole="TipoProducto" ToRole="Producto" />
+    <NavigationProperty Name="Producto1" Relationship="Self.FK__Producto__TPProd__412EB0B6" FromRole="TipoProducto" ToRole="Producto" />
+    <NavigationProperty Name="Producto2" Relationship="Self.FK__Producto__TPProd__4222D4EF" FromRole="TipoProducto" ToRole="Producto" />
+  </EntityType>
+  <Association Name="FK__Producto__IDClie__3C69FB99">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IDCliente" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__IDClie__3D5E1FD2">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IDCliente" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__Descue__3A81B327">
+    <End Role="Descuento" Type="Self.Descuento" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Descuento">
+        <PropertyRef Name="IDescuento" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Descuento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__Descue__3B75D760">
+    <End Role="Descuento" Type="Self.Descuento" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Descuento">
+        <PropertyRef Name="IDescuento" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Descuento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TEEnvi__3E52440B">
+    <End Role="TipoEnvio" Type="Self.TipoEnvio" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEnvio">
+        <PropertyRef Name="TEEnvio" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TEEnvio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TEEnvi__3F466844">
+    <End Role="TipoEnvio" Type="Self.TipoEnvio" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEnvio">
+        <PropertyRef Name="TEEnvio" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TEEnvio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TPProd__403A8C7D">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TPProducto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TPProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TPProd__412EB0B6">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TPProducto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TPProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TPProd__4222D4EF">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TPProducto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TPProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbModels" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Descuento" EntityType="Self.Descuento" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TipoEnvio" EntityType="Self.TipoEnvio" />
+    <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" />
+    <AssociationSet Name="FK__Producto__IDClie__3C69FB99" Association="Self.FK__Producto__IDClie__3C69FB99">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__IDClie__3D5E1FD2" Association="Self.FK__Producto__IDClie__3D5E1FD2">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__Descue__3A81B327" Association="Self.FK__Producto__Descue__3A81B327">
+      <End Role="Descuento" EntitySet="Descuento" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__Descue__3B75D760" Association="Self.FK__Producto__Descue__3B75D760">
+      <End Role="Descuento" EntitySet="Descuento" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TEEnvi__3E52440B" Association="Self.FK__Producto__TEEnvi__3E52440B">
+      <End Role="TipoEnvio" EntitySet="TipoEnvio" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TEEnvi__3F466844" Association="Self.FK__Producto__TEEnvi__3F466844">
+      <End Role="TipoEnvio" EntitySet="TipoEnvio" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TPProd__403A8C7D" Association="Self.FK__Producto__TPProd__403A8C7D">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TPProd__412EB0B6" Association="Self.FK__Producto__TPProd__412EB0B6">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TPProd__4222D4EF" Association="Self.FK__Producto__TPProd__4222D4EF">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ENVIOModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ENVIOModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="usp_eliminar_cli">
+      <Parameter Name="IDProduto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_listar_cli" ReturnType="Collection(ENVIOModel.usp_listar_cli_Result)" />
+    <FunctionImport Name="usp_listar_pro" ReturnType="Collection(ENVIOModel.usp_listar_pro_Result)" />
+    <FunctionImport Name="usp_modificar_cli">
+      <Parameter Name="IDProduto" Mode="In" Type="Int32" />
+      <Parameter Name="TPProducto" Mode="In" Type="Int32" />
+      <Parameter Name="IDCliente" Mode="In" Type="Int32" />
+      <Parameter Name="TEEnvio" Mode="In" Type="Int32" />
+      <Parameter Name="PBodegaEntrega" Mode="In" Type="String" />
+      <Parameter Name="Placa" Mode="In" Type="String" />
+      <Parameter Name="PPuertoEntrega" Mode="In" Type="String" />
+      <Parameter Name="PNumeroFlota" Mode="In" Type="Int32" />
+      <Parameter Name="PNoGuia" Mode="In" Type="String" />
+      <Parameter Name="Precio" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Descuento" Mode="In" Type="Int32" />
+      <Parameter Name="Total" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_modificar_pro">
+      <Parameter Name="TPProducto" Mode="In" Type="Int32" />
+      <Parameter Name="TPNombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_registrar_cli">
+      <Parameter Name="IDProduto" Mode="In" Type="Int32" />
+      <Parameter Name="TPProducto" Mode="In" Type="Int32" />
+      <Parameter Name="IDCliente" Mode="In" Type="Int32" />
+      <Parameter Name="TEEnvio" Mode="In" Type="Int32" />
+      <Parameter Name="PBodegaEntrega" Mode="In" Type="String" />
+      <Parameter Name="Placa" Mode="In" Type="String" />
+      <Parameter Name="PPuertoEntrega" Mode="In" Type="String" />
+      <Parameter Name="PNumeroFlota" Mode="In" Type="Int32" />
+      <Parameter Name="PNoGuia" Mode="In" Type="String" />
+      <Parameter Name="Precio" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Descuento" Mode="In" Type="Int32" />
+      <Parameter Name="Total" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_registrar_pro">
+      <Parameter Name="TPProducto" Mode="In" Type="Int32" />
+      <Parameter Name="TPNombre" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_listar_cli_Result">
+    <Property Type="Int32" Name="IDCliente" Nullable="false" />
+    <Property Type="String" Name="CNombre" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="CApellido" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="CTelefono" Nullable="true" />
+    <Property Type="String" Name="Ccorreo" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="usp_listar_pro_Result">
+    <Property Type="Int32" Name="IDProduto" Nullable="false" />
+    <Property Type="Int32" Name="TPProducto" Nullable="false" />
+    <Property Type="Int32" Name="IDCliente" Nullable="false" />
+    <Property Type="Int32" Name="TEEnvio" Nullable="false" />
+    <Property Type="String" Name="PBodegaEntrega" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Placa" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PPuertoEntrega" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="PNumeroFlota" Nullable="true" />
+    <Property Type="String" Name="PNoGuia" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Precio" Nullable="true" />
+    <Property Type="Int32" Name="Cantidad" Nullable="true" />
+    <Property Type="Int32" Name="Descuento" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="DateTime" Name="PFechaRegistro" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

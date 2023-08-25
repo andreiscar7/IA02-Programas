@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ae015cffef64f5dae65ecd367b43bec" Name="Diagram1">
+        <EntityTypeShape EntityType="ENVIOModel.Cliente" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ENVIOModel.Descuento" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ENVIOModel.Producto" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ENVIOModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ENVIOModel.TipoEnvio" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ENVIOModel.TipoProducto" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__IDClie__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__IDClie__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__Descue__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__Descue__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__TEEnvi__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__TEEnvi__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__TPProd__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__TPProd__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="ENVIOModel.FK__Producto__TPProd__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

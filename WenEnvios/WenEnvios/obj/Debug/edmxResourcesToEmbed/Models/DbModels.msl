@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ENVIOModelStoreContainer" CdmEntityContainer="DbModels">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="ENVIOModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="CNombre" ColumnName="CNombre" />
+          <ScalarProperty Name="CApellido" ColumnName="CApellido" />
+          <ScalarProperty Name="CTelefono" ColumnName="CTelefono" />
+          <ScalarProperty Name="Ccorreo" ColumnName="Ccorreo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Descuento">
+      <EntityTypeMapping TypeName="ENVIOModel.Descuento">
+        <MappingFragment StoreEntitySet="Descuento">
+          <ScalarProperty Name="IDescuento" ColumnName="IDescuento" />
+          <ScalarProperty Name="Descuento1" ColumnName="Descuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="ENVIOModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="IDProduto" ColumnName="IDProduto" />
+          <ScalarProperty Name="TPProducto" ColumnName="TPProducto" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="TEEnvio" ColumnName="TEEnvio" />
+          <ScalarProperty Name="PBodegaEntrega" ColumnName="PBodegaEntrega" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="PPuertoEntrega" ColumnName="PPuertoEntrega" />
+          <ScalarProperty Name="PNumeroFlota" ColumnName="PNumeroFlota" />
+          <ScalarProperty Name="PNoGuia" ColumnName="PNoGuia" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="PFechaRegistro" ColumnName="PFechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ENVIOModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoEnvio">
+      <EntityTypeMapping TypeName="ENVIOModel.TipoEnvio">
+        <MappingFragment StoreEntitySet="TipoEnvio">
+          <ScalarProperty Name="TEEnvio" ColumnName="TEEnvio" />
+          <ScalarProperty Name="TENombre" ColumnName="TENombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoProducto">
+      <EntityTypeMapping TypeName="ENVIOModel.TipoProducto">
+        <MappingFragment StoreEntitySet="TipoProducto">
+          <ScalarProperty Name="TPProducto" ColumnName="TPProducto" />
+          <ScalarProperty Name="TPNombre" ColumnName="TPNombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ENVIOModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ENVIOModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ENVIOModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ENVIOModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ENVIOModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ENVIOModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ENVIOModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ENVIOModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ENVIOModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="usp_eliminar_cli" FunctionName="ENVIOModel.Store.usp_eliminar_cli" />
+    <FunctionImportMapping FunctionImportName="usp_listar_cli" FunctionName="ENVIOModel.Store.usp_listar_cli">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ENVIOModel.usp_listar_cli_Result">
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="CNombre" ColumnName="CNombre" />
+          <ScalarProperty Name="CApellido" ColumnName="CApellido" />
+          <ScalarProperty Name="CTelefono" ColumnName="CTelefono" />
+          <ScalarProperty Name="Ccorreo" ColumnName="Ccorreo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_listar_pro" FunctionName="ENVIOModel.Store.usp_listar_pro">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ENVIOModel.usp_listar_pro_Result">
+          <ScalarProperty Name="IDProduto" ColumnName="IDProduto" />
+          <ScalarProperty Name="TPProducto" ColumnName="TPProducto" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="TEEnvio" ColumnName="TEEnvio" />
+          <ScalarProperty Name="PBodegaEntrega" ColumnName="PBodegaEntrega" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="PPuertoEntrega" ColumnName="PPuertoEntrega" />
+          <ScalarProperty Name="PNumeroFlota" ColumnName="PNumeroFlota" />
+          <ScalarProperty Name="PNoGuia" ColumnName="PNoGuia" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="PFechaRegistro" ColumnName="PFechaRegistro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_modificar_cli" FunctionName="ENVIOModel.Store.usp_modificar_cli" />
+    <FunctionImportMapping FunctionImportName="usp_modificar_pro" FunctionName="ENVIOModel.Store.usp_modificar_pro" />
+    <FunctionImportMapping FunctionImportName="usp_registrar_cli" FunctionName="ENVIOModel.Store.usp_registrar_cli" />
+    <FunctionImportMapping FunctionImportName="usp_registrar_pro" FunctionName="ENVIOModel.Store.usp_registrar_pro" />
+  </EntityContainerMapping>
+</Mapping>

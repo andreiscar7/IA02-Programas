@@ -1,0 +1,111 @@
+﻿@model IEnumerable<WenEnvios.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { @class = "btn btn-sucess" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TPProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEEnvio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBodegaEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PPuertoEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PNumeroFlota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PNoGuia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descuento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PFechaRegistro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TPProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEEnvio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBodegaEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PPuertoEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PNumeroFlota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PNoGuia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descuento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PFechaRegistro)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.IDProducto }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.IDProducto }, new { @class = "btn btn-prinary" } ) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.IDProducto }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

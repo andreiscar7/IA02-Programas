@@ -1,0 +1,58 @@
+﻿@model WenEnvios.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTelefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTelefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ccorreo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ccorreo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

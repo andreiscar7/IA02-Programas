@@ -1,5 +1,0 @@
-100000,Miguel,Diaz,248524,anah@hot.com
-100001,Angui,Lopez,248745,anlo@hot.com
-100002,Juan,Avila,225555,juavi@hot.com
-100003,Mateo,Luna,7877477,maluo@hot.com
-100004,Miguel,Diaz,248524,anah@hot.com

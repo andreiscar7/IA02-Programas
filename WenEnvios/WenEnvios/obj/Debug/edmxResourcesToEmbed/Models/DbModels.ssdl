@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ENVIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="IDCliente" Type="int" Nullable="false" />
+    <Property Name="CNombre" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CApellido" Type="varchar" MaxLength="15" />
+    <Property Name="CTelefono" Type="int" />
+    <Property Name="Ccorreo" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Descuento">
+    <Key>
+      <PropertyRef Name="IDescuento" />
+    </Key>
+    <Property Name="IDescuento" Type="int" Nullable="false" />
+    <Property Name="Descuento" Type="float" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IDProduto" />
+    </Key>
+    <Property Name="IDProduto" Type="int" Nullable="false" />
+    <Property Name="TPProducto" Type="int" Nullable="false" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
+    <Property Name="TEEnvio" Type="int" Nullable="false" />
+    <Property Name="PBodegaEntrega" Type="varchar" MaxLength="20" />
+    <Property Name="Placa" Type="varchar" MaxLength="10" />
+    <Property Name="PPuertoEntrega" Type="varchar" MaxLength="15" />
+    <Property Name="PNumeroFlota" Type="int" />
+    <Property Name="PNoGuia" Type="varchar" MaxLength="30" />
+    <Property Name="Precio" Type="int" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Descuento" Type="int" />
+    <Property Name="Total" Type="int" />
+    <Property Name="PFechaRegistro" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoEnvio">
+    <Key>
+      <PropertyRef Name="TEEnvio" />
+    </Key>
+    <Property Name="TEEnvio" Type="int" Nullable="false" />
+    <Property Name="TENombre" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TipoProducto">
+    <Key>
+      <PropertyRef Name="TPProducto" />
+    </Key>
+    <Property Name="TPProducto" Type="int" Nullable="false" />
+    <Property Name="TPNombre" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__Producto__Descue__3A81B327">
+    <End Role="Descuento" Type="Self.Descuento" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Descuento">
+        <PropertyRef Name="IDescuento" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Descuento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__Descue__3B75D760">
+    <End Role="Descuento" Type="Self.Descuento" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Descuento">
+        <PropertyRef Name="IDescuento" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Descuento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__IDClie__3C69FB99">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IDCliente" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__IDClie__3D5E1FD2">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IDCliente" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TEEnvi__3E52440B">
+    <End Role="TipoEnvio" Type="Self.TipoEnvio" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEnvio">
+        <PropertyRef Name="TEEnvio" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TEEnvio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TEEnvi__3F466844">
+    <End Role="TipoEnvio" Type="Self.TipoEnvio" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEnvio">
+        <PropertyRef Name="TEEnvio" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TEEnvio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TPProd__403A8C7D">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TPProducto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TPProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TPProd__412EB0B6">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TPProducto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TPProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__TPProd__4222D4EF">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="TPProducto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TPProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_eliminar_cli" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDProduto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_listar_cli" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_listar_pro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_modificar_cli" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDProduto" Type="int" Mode="In" />
+    <Parameter Name="TPProducto" Type="int" Mode="In" />
+    <Parameter Name="IDCliente" Type="int" Mode="In" />
+    <Parameter Name="TEEnvio" Type="int" Mode="In" />
+    <Parameter Name="PBodegaEntrega" Type="varchar" Mode="In" />
+    <Parameter Name="Placa" Type="varchar" Mode="In" />
+    <Parameter Name="PPuertoEntrega" Type="varchar" Mode="In" />
+    <Parameter Name="PNumeroFlota" Type="int" Mode="In" />
+    <Parameter Name="PNoGuia" Type="varchar" Mode="In" />
+    <Parameter Name="Precio" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+    <Parameter Name="Descuento" Type="int" Mode="In" />
+    <Parameter Name="Total" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_modificar_pro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TPProducto" Type="int" Mode="In" />
+    <Parameter Name="TPNombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_registrar_cli" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDProduto" Type="int" Mode="In" />
+    <Parameter Name="TPProducto" Type="int" Mode="In" />
+    <Parameter Name="IDCliente" Type="int" Mode="In" />
+    <Parameter Name="TEEnvio" Type="int" Mode="In" />
+    <Parameter Name="PBodegaEntrega" Type="varchar" Mode="In" />
+    <Parameter Name="Placa" Type="varchar" Mode="In" />
+    <Parameter Name="PPuertoEntrega" Type="varchar" Mode="In" />
+    <Parameter Name="PNumeroFlota" Type="int" Mode="In" />
+    <Parameter Name="PNoGuia" Type="varchar" Mode="In" />
+    <Parameter Name="Precio" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+    <Parameter Name="Descuento" Type="int" Mode="In" />
+    <Parameter Name="Total" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_registrar_pro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TPProducto" Type="int" Mode="In" />
+    <Parameter Name="TPNombre" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ENVIOModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Descuento" EntityType="Self.Descuento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEnvio" EntityType="Self.TipoEnvio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Producto__Descue__3A81B327" Association="Self.FK__Producto__Descue__3A81B327">
+      <End Role="Descuento" EntitySet="Descuento" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__Descue__3B75D760" Association="Self.FK__Producto__Descue__3B75D760">
+      <End Role="Descuento" EntitySet="Descuento" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__IDClie__3C69FB99" Association="Self.FK__Producto__IDClie__3C69FB99">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__IDClie__3D5E1FD2" Association="Self.FK__Producto__IDClie__3D5E1FD2">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TEEnvi__3E52440B" Association="Self.FK__Producto__TEEnvi__3E52440B">
+      <End Role="TipoEnvio" EntitySet="TipoEnvio" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TEEnvi__3F466844" Association="Self.FK__Producto__TEEnvi__3F466844">
+      <End Role="TipoEnvio" EntitySet="TipoEnvio" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TPProd__403A8C7D" Association="Self.FK__Producto__TPProd__403A8C7D">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TPProd__412EB0B6" Association="Self.FK__Producto__TPProd__412EB0B6">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__TPProd__4222D4EF" Association="Self.FK__Producto__TPProd__4222D4EF">
+      <End Role="TipoProducto" EntitySet="TipoProducto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,64 @@
+﻿@model WenEnvios.Models.Cliente
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Deseas eliminar el cliente?</h3>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTelefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTelefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ccorreo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ccorreo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
